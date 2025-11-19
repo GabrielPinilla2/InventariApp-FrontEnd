@@ -1,0 +1,348 @@
+/* ===========================
+   1) Reiniciar márgenes y evitar overflow horizontal
+   =========================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;          /* Impide scroll horizontal innecesario */
+  /* Ajusta este “padding-top” a la altura real de tu navbar (≈56px si usas Bootstrap por defecto) */
+  padding-top: 30px;
+  /* Ajusta este “padding-bottom” a la altura de tu footer fijo (si lo estás usando) */
+  padding-bottom: 40px;
+  font-family: Arial, Helvetica, Sans serif;
+  background: url(https://josetxu.com/img/fondo_blanco.png) repeat 0 0 #fff;
+}
+
+/* ===========================
+   2) Estilos generales (reseteo y tipografía de “label” y “table”)
+   =========================== */
+.redondeada {
+  border-radius: 20px;
+}
+
+/* El selector “label” lo vas a sobrescribir en los formularios específicos, así que dejaremos aquí solo la base */
+label {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  color: gray; /* Este color es el “gris neutro” para etiquetas de formularios básicos */
+}
+
+/* El texto de las tablas por defecto (celdas) será gris oscuro, pero los encabezados los trataremos aparte */
+table {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: gray;
+}
+
+/* ===========================
+   3) Encabezados globales h1, h2
+   =========================== */
+h1 {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 0.5em;
+  margin: 0 0 2em 0;
+}
+
+h2 {
+  font-weight: normal;
+  text-align: center;
+  color: #777;
+}
+
+/* ===========================
+   4) Formularios y fieldsets (no modificamos aquí: las clases de “form-control” van en los componentes)
+   =========================== */
+form {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.content {
+  width: 50%;
+  padding: 1em;
+  box-sizing: border-box;
+  float: left;
+}
+
+fieldset {
+  padding: 2em;
+  border-color: #d4d4d4;
+  border-style: solid;
+  border-width: 2px;
+  background: #fff;
+}
+
+legend {
+  color: #bfbfbf;
+  padding: 0.3em 0.6em;
+  border: 2px solid #d4d4d4;
+  background: #fff;
+  font-size: 1.3em;
+}
+
+legend.radio {
+  border-radius: 50px;
+}
+
+/* ===========================
+   5) Contenedor interno para páginas secundarias
+         (siempre dentro de <div id="home-container"> … )
+   =========================== */
+#home-container {
+  padding-top: 0;  /* Ya no necesita padding-top porque lo pusimos en BODY */
+  padding-bottom: 40px; /* Espacio para que el footer no tape contenido */
+  width: 100%;    
+  box-sizing: border-box;
+}
+
+/* ===========================
+   6) Listas sin viñetas dentro de “.container”
+   =========================== */
+.container ul {
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.container ul li {
+  list-style-type: none;
+}
+
+.container ul + ul {
+  margin-bottom: 0;
+}
+
+.container ul + ul > li + li label {
+  margin-bottom: 0;
+}
+
+/* ===========================
+   7) Estilos de “radio” y “checkbox” (sólo si los usas fuera de Bootstrap)
+   =========================== */
+/* Nota: si usas “.form-check-input” y “.form-check-label” de Bootstrap, podrías simplificar esto */
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  line-height: 3em;
+  cursor: pointer;
+  font-weight: 600;
+  color: #777777;
+  margin-bottom: 11px;
+  width: 100%;
+  float: left;
+  padding: 0 0.6em;
+  box-sizing: border-box;
+  background: #e6e6e6;
+  transition: all 0.5s ease 0s;
+}
+
+input[type="radio"] + label:before,
+input[type="checkbox"] + label:before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  float: left;
+  margin-right: 0.5em;
+  border: 2px solid #ccc;
+  background: #fff;
+  margin-top: 0.5em;
+}
+
+input[type="radio"] + label:before {
+  border-radius: 100%;
+}
+
+input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label {
+  background: #c1eec2;
+}
+
+input[type="radio"]:checked + label:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid #0fbf12;
+  float: left;
+  margin-left: -1.85em;
+  margin-top: 1em;
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:checked + label:after {
+  content: "";
+  width: 12px;
+  height: 6px;
+  border: 4px solid #0fbf12;
+  float: left;
+  margin-left: -1.95em;
+  border-right: 0;
+  border-top: 0;
+  margin-top: 1em;
+  transform: rotate(-55deg);
+}
+
+input[type="radio"]:checked + label:before,
+input[type="checkbox"]:checked + label:before {
+  border-color: #0fbf12;
+}
+
+input[type="radio"]:disabled + label,
+input[type="checkbox"]:disabled + label {
+  color: #ccc !important;
+  cursor: not-allowed;
+}
+
+input[type="radio"]:checked:disabled + label:after,
+input[type="checkbox"]:checked:disabled + label:after {
+  border-color: #ccc;
+}
+
+input[type="radio"]:checked:disabled + label,
+input[type="checkbox"]:checked:disabled + label {
+  background: #ccc;
+  color: #fff !important;
+}
+
+input[type="radio"]:checked:disabled + label:before,
+input[type="checkbox"]:checked:disabled + label:before {
+  border-color: #bdbdbd;
+}
+
+/* ===========================
+   8) Estilos para el navbar (en tu caso ya estaban correctos)
+   =========================== */
+.navbar-custom {
+  background-color: #092035 !important; /* Azul navy */
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand,
+.navbar-custom .dropdown-item {
+  color: #ffffff !important; /* Blanco en enlaces */
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .dropdown-item:hover {
+  color: #F6B948 !important; /* Amarillo al hover */
+  background-color: rgba(246, 185, 72, 0.1) !important;
+}
+
+.navbar-custom .dropdown-toggle::after {
+  border-top-color: #F6B948 !important; /* Caret amarillo */
+}
+
+.navbar-custom .dropdown-menu {
+  background-color: #092035 !important; /* Misma tonalidad navy */
+  border: none;
+}
+
+.navbar-custom .dropdown-menu .dropdown-item {
+  color: #ffffff !important;
+}
+
+.navbar-custom .dropdown-menu .dropdown-item:hover {
+  background-color: rgba(246, 185, 72, 0.1) !important;
+  color: #F6B948 !important;
+}
+
+/* ===========================
+   9) Ajustes para la “section-header” y botones/tablas (genéricos para todas las páginas)
+   =========================== */
+
+/* “Section header” con texto navy y líneas laterales */
+.section-header {
+  text-align: center;
+  color: #092035; /* Navy oscuro */
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.75rem;
+  position: relative;
+}
+.section-header::before,
+.section-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 15%;
+  height: 2px;
+  background-color: #ccc;
+}
+.section-header::before {
+  left: 0;
+}
+.section-header::after {
+  right: 0;
+}
+
+/* Botones amarillos (btn-yellow) con texto navy */
+.btn-yellow {
+  background-color: #F6B948;
+  color: #092035;
+  border: none;
+}
+.btn-yellow:hover {
+  background-color: #FFD36A;
+  color: #092035;
+}
+
+/* Botón secundario (btn-cancel) en transparent/ navy-border, se vuelve navy en hover */
+.btn-cancel {
+  background-color: transparent;
+  color: #092035;
+  border: 1px solid #092035;
+}
+.btn-cancel:hover {
+  background-color: #092035;
+  color: #ffffff;
+  border-color: #092035;
+}
+
+/* Tablas personalizadas: encabezado navy, texto blanco, filas alternadas, hover ligero */
+.table-custom thead {
+  background-color: #092035; /* Navy oscuro */
+}
+.table-custom thead th {
+  color: #000000;           /* Texto blanco */
+}
+.table-custom tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9; /* Filas alternadas suaves */
+}
+.table-custom tbody tr:hover {
+  background-color: rgba(246, 185, 72, 0.15); /* Hover amarillento */
+}
+
+/* Iconos de acción (editar/eliminar) con mini-animación en hover */
+.action-icon {
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: transform 0.1s ease-in-out;
+}
+.action-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Ajustes responsivos para tablas en pantallas muy pequeñas */
+@media (max-width: 576px) {
+  .table-custom td,
+  .table-custom th {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Margen inferior para el contenedor de botones en formularios */
+.form-button-row {
+  margin-bottom: 1rem;
+}
+
+/* Responsive general para contenidos (si usas .content en algún lado) */
+@media (max-width: 650px) {
+  .content {
+    width: 100%;
+  }
+}
