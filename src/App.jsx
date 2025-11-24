@@ -29,6 +29,9 @@ import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import logo from "./assets/logo.png";
+import SaleList from "./components/SaleList";
+import SaleForm from "./components/SaleForm";
+
 
 function AppContent({ isAuthenticated }) {
   const location = useLocation();
@@ -79,6 +82,9 @@ function AppContent({ isAuthenticated }) {
 
           <Route path="/changepassword" element={<div>Componente Para cambiar el password</div>} />
 
+          <Route path="/sales" element={<SaleList />} />
+          <Route path="/sales/new" element={<SaleForm />} />
+          <Route path="/sales/edit/:id" element={<SaleForm />} />
           <Route path="/sales" element={<div>Componente Ventas</div>} />
           <Route path="/entries" element={<div>Componente Notas de entrada</div>} />
           <Route path="/reports" element={<div>Componente Reportes</div>} />

@@ -17,6 +17,7 @@ import MeasurementList from "./components/MeasurementList";
 import MeasurementForm from "./components/MeasurementForm";
 import PersonForm from "./components/PersonForm";
 import PersonList from "./components/PersonList";
+import SaleList from "./components/SaleList";
 
 import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
