@@ -1,6 +1,6 @@
 import api from '../axiosConfig';
 
-const API_URL = 'http://localhost:8080/api/sales';
+const API_URL = 'https://inventariapp.onrender.com/api/sales';
 
 export const getSales = () => {
   return api.get(`${API_URL}`);
