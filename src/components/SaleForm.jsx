@@ -32,7 +32,7 @@ const SaleForm = () => {
 
   // Cargar clientes
   useEffect(() => {
-    fetch("http://localhost:8080/api/sellers")
+    fetch("https://inventariapp.jdav01.duckdns.org/api/sellers")
       .then(res => res.json())
       .then(data => setSellers(data));
   }, []);
@@ -42,14 +42,14 @@ const SaleForm = () => {
 
   // Cargar clientes
   useEffect(() => {
-    fetch("http://localhost:8080/api/customer")
+    fetch("https://inventariapp.jdav01.duckdns.org/api/customer")
       .then(res => res.json())
       .then(data => setClientes(data));
   }, []);
 
   // Cargar productos
   useEffect(() => {
-    fetch("http://localhost:8080/api/products")
+    fetch("https://inventariapp.jdav01.duckdns.org/api/products")
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);

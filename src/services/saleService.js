@@ -1,6 +1,6 @@
 import api from '../axiosConfig';
 
-const API_URL = 'https://inventariapp.jdav01.duckdns.org/api/sales';
+const API_URL = 'https://inventariapp.jdav01.duckdns.org/api/';
 
 export const getSales = () => {
   return api.get(`${API_URL}`);
