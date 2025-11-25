@@ -3,7 +3,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const apiTOAST = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: "https://inventariapp.jdav01.duckdns.org/api",
+  //'http://localhost:8080/api',
 });
 
 // ✅ Interceptor para agregar token JWT

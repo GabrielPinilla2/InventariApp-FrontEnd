@@ -9,7 +9,8 @@ function LoginForm() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', { username, password });
+      //const response = await axios.post('http://localhost:8080/api/auth/login', { username, password });
+      const response = await axios.post('https://inventariapp.jdav01.duckdns.org/', { username, password });
       const token = response.data.token;
       const requestUserName = response.data.username;
       const requestUserRole = response.data.roleUser;

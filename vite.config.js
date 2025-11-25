@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:8080'
-      //'/api': 'https://inventariapp.onrender.com'
+      //'/api': 'http://localhost:8080'
+      '/api': 'https://inventariapp.jdav01.duckdns.org/'
     }
   }
 })
